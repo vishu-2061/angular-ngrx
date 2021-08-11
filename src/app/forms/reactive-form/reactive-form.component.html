@@ -1,0 +1,29 @@
+<p>Reactive Form Example!</p>
+<div class="container">
+    <div class="col-md-6 bg-white rounded shadow py-3">
+        <form [formGroup]="myReactiveForm" (ngSubmit)="onSubmit()">
+            <div formGroupName="userDetails">
+                <div class="form-group">
+                    <label for="username">UserName</label>
+                    <input type="text" formControlName="username" name="username" class="form-control" id="username" placeholder="UserName">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" formControlName="email" autocomplete="off" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    <small *ngIf="!myReactiveForm.get('userDetails.email').valid && myReactiveForm.get('userDetails.email').touched" class="text-danger">Please Enter valid email address</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" formControlName="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" formControlName="checkbox" name="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            </div>
+            <button type="submit" class="btn btn-primary btn-success">Submit</button>
+        </form>
+    </div>
+</div>
